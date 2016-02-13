@@ -3,25 +3,6 @@ console.log('JAX - running')
 // var args = process.argv.slice(2);
 var exec = require('child_process').exec;
 
-// exec('say ' + args[0])
-
-// var prompt = require('prompt');
-
-// prompt.start();
-
-// prompt.get(['username', 'email'], function (err, result) {
-// 	if (err) { return onErr(err); }
-// 	console.log('Command-line input received:');
-// 	console.log('  Username: ' + result.username);
-// 	console.log('  Email: ' + result.email);
-// });
-
-// function onErr(err) {
-// 	console.log(err);
-// 	return 1;
-// }
-
-
 var inquirer = require("inquirer");
  
 var questions = [
@@ -34,10 +15,6 @@ var questions = [
       message: 'What is your name?',
       default: 'nobody'
     },
-    // { type: 'confirm',
-    //   name: 'confirm',
-    //   message: 'Confirm?',
-    // },
     { when: function (response) {
     	if(response.name) {
 	    	exec('say -v vicki Welcome, ' + response.name + '. How old are you?')
@@ -80,23 +57,6 @@ var questions = [
       message: 'Exit',
       default: true
     }
-    // {
-    // type: "checkbox",
-    // message: "Servicios Publicos",
-    // name: "servicios",
-    // choices: [
-    //   {
-    //     name: "Agua",
-    //     checked: true
-    //   },
-    //   {
-    //     name: "Luz"
-    //   },
-    //   {
-    //     name: "Internet"
-    //   },
-    //   ],
-    // }
     ];
 inquirer.prompt(questions, function(responses) {
   console.log(responses);
